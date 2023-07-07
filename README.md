@@ -26,4 +26,18 @@ Log.error('这是一条error信息');
 
 ![preview](preview.png)
  
+## 3. 配置
+
+* 如果希望输出日志的时候显示堆栈信息，可以设置`showStack`为`true`，默认为`false`
+* 为了堆栈信息，我们在此只显示调用处的文件名和行号等信息。
+
+```typescript
+import Log from "crlog";
+Log.showStack = true;
+```
+
+然后你看到的效果就是这样的：
+
+![preview](preview_stack.png)
+
  

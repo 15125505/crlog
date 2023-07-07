@@ -5,7 +5,7 @@
 
 export default class Log {
     static debug(...args: any[]) {
-        console.log(...args);
+        console.log(this.color(args.join(' '), 37));
     }
 
     static log(...args: any[]) {
@@ -25,12 +25,20 @@ export default class Log {
     }
 
     private static color(text: string, crText: number): string {
-        if (crText < 30 || crText > 37) {
-            return text;
+        let colorText = '\x1b[0;' + crText + 'm' + text + '\x1b[0m';
+        if (this.showStack) {
+            const ret = /Error.*?at.*?at.*?at\s+?(\S+?)\s+?.*?[\\/]([^\\/]+?)\)/ms.exec(new Error().stack);
+            if (ret) {
+                colorText = `${ret[1]} ${ret[2]} ` + colorText;
+            }
         }
-        return '\x1b[0;' + crText + 'm' + text + '\x1b[0m';
+        return colorText;
     }
 
+    /**
+     * 是否显示堆栈信息
+     */
+    static showStack = false;
 }
 
-export { Log };
+export {Log};

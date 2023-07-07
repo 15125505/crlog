@@ -5,5 +5,9 @@ export default class Log {
     static warn(...args: any[]): void;
     static error(...args: any[]): void;
     private static color;
+    /**
+     * 是否显示堆栈信息
+     */
+    static showStack: boolean;
 }
 export { Log };

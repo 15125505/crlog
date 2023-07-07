@@ -12,7 +12,7 @@ var Log = /** @class */ (function () {
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        console.log.apply(console, args);
+        console.log(this.color(args.join(' '), 37));
     };
     Log.log = function () {
         var args = [];
@@ -43,11 +43,19 @@ var Log = /** @class */ (function () {
         console.log(this.color(args.join(' '), 31));
     };
     Log.color = function (text, crText) {
-        if (crText < 30 || crText > 37) {
-            return text;
+        var colorText = '\x1b[0;' + crText + 'm' + text + '\x1b[0m';
+        if (this.showStack) {
+            var ret = /Error.*?at.*?at.*?at\s+?(\S+?)\s+?.*?[\\/]([^\\/]+?)\)/ms.exec(new Error().stack);
+            if (ret) {
+                colorText = ret[1] + " " + ret[2] + " " + colorText;
+            }
         }
-        return '\x1b[0;' + crText + 'm' + text + '\x1b[0m';
+        return colorText;
     };
+    /**
+     * 是否显示堆栈信息
+     */
+    Log.showStack = false;
     return Log;
 }());
 exports.Log = Log;

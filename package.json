@@ -1,6 +1,6 @@
 {
   "name": "crlog",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A log library for Node.js projects, which can generate logs with very rich colors. ",
   "main": "./src/log.js",
   "exports": "./src/log.js",
@@ -14,7 +14,8 @@
   "author": "Zhou Feng",
   "license": "MIT",
   "files": [
-    "src"
+    "src",
+    "*.png"
   ],
   "devDependencies": {
     "ts-loader": "^9.4.4",

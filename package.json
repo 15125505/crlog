@@ -2,14 +2,27 @@
   "name": "tlog",
   "version": "1.0.0",
   "description": "A log library for Node.js projects, which can generate logs with very rich colors. ",
-  "main": "index.js",
+  "main": "dist/bundle.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
   },
   "keywords": [
     "log",
     "color"
   ],
-  "author": "zf",
-  "license": "MIT"
+  "author": "Zhou Feng",
+  "license": "MIT",
+  "files": [
+    "src",
+    "dist",
+    "types"
+  ],
+  "devDependencies": {
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-merge": "^5.9.0"
+  }
 }

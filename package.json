@@ -1,8 +1,9 @@
 {
-  "name": "tlog",
-  "version": "1.0.0",
+  "name": "crlog",
+  "version": "1.0.3",
   "description": "A log library for Node.js projects, which can generate logs with very rich colors. ",
-  "main": "dist/bundle.js",
+  "main": "./src/log.js",
+  "exports": "./src/log.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js"
@@ -14,9 +15,7 @@
   "author": "Zhou Feng",
   "license": "MIT",
   "files": [
-    "src",
-    "dist",
-    "types"
+    "src"
   ],
   "devDependencies": {
     "ts-loader": "^9.4.4",

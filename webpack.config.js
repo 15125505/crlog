@@ -4,7 +4,7 @@ module.exports = {
     entry: './src/log.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'log.js'
     },
     module: {
         rules: [

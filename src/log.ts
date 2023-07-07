@@ -3,7 +3,7 @@
 // Date: 2023-07-07 09:52
 
 
-export class Log {
+export default class Log {
     static debug(...args: any[]) {
         console.log(...args);
     }
@@ -32,3 +32,5 @@ export class Log {
     }
 
 }
+
+export { Log };

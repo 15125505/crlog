@@ -1,0 +1,15 @@
+{
+  "name": "tlog",
+  "version": "1.0.0",
+  "description": "A log library for Node.js projects, which can generate logs with very rich colors. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "log",
+    "color"
+  ],
+  "author": "zf",
+  "license": "MIT"
+}

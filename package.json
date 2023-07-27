@@ -1,6 +1,6 @@
 {
   "name": "crlog",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A log library for Node.js projects, which can generate logs with very rich colors. ",
   "main": "./src/log.js",
   "exports": "./src/log.js",

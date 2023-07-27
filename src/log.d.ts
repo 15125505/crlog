@@ -4,7 +4,7 @@ export default class Log {
     static info(...args: any[]): void;
     static warn(...args: any[]): void;
     static error(...args: any[]): void;
-    private static color;
+    private static colorOut;
     /**
      * 是否显示堆栈信息
      */

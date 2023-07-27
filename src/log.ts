@@ -28,7 +28,7 @@ export default class Log {
         const crBegin = '\x1b[0;' + crText + 'm';
         const crEnd = '\x1b[0m';
         if (this.showStack) {
-            const ret = /Error.*?at.*?at.*?at\s+?(\S+?)\s+?.*?[\\/]([^\\/]+?)\)/ms.exec(new Error().stack);
+            const ret = /Error.*? at .*? at .*? at (\S+?)\s+?.*?[\\/]([^\\/]+?)\)/ms.exec(new Error().stack);
             if (ret) {
                 args.unshift(`${ret[1]} ${ret[2]}`)
             }

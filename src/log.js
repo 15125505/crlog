@@ -12,45 +12,48 @@ var Log = /** @class */ (function () {
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        console.log(this.color(args.join(' '), 37));
+        Log.colorOut(args, 37);
     };
     Log.log = function () {
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        console.log(this.color(args.join(' '), 32));
+        Log.colorOut(args, 32);
     };
     Log.info = function () {
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        console.log(this.color(args.join(' '), 36));
+        Log.colorOut(args, 36);
     };
     Log.warn = function () {
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        console.log(this.color(args.join(' '), 33));
+        Log.colorOut(args, 33);
     };
     Log.error = function () {
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        console.log(this.color(args.join(' '), 31));
+        Log.colorOut(args, 31);
     };
-    Log.color = function (text, crText) {
-        var colorText = '\x1b[0;' + crText + 'm' + text + '\x1b[0m';
+    Log.colorOut = function (args, crText) {
+        var crBegin = '\x1b[0;' + crText + 'm';
+        var crEnd = '\x1b[0m';
         if (this.showStack) {
-            var ret = /Error.*?at.*?at.*?at\s+?(\S+?)\s+?.*?[\\/]([^\\/]+?)\)/ms.exec(new Error().stack);
+            var ret = /Error.*? at .*? at .*? at (\S+?)\s+?.*?[\\/]([^\\/]+?)\)/ms.exec(new Error().stack);
             if (ret) {
-                colorText = ret[1] + " " + ret[2] + " " + colorText;
+                args.unshift(ret[1] + " " + ret[2]);
             }
         }
-        return colorText;
+        args.unshift(crBegin);
+        args.push(crEnd);
+        console.log.apply(console, args);
     };
     /**
      * 是否显示堆栈信息
